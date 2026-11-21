@@ -1,0 +1,228 @@
+{
+ "namespaces": {
+  "dev-sandbox": {
+   "labels": {
+    "env": "dev"
+   },
+   "resources": {}
+  },
+  "payments": {
+   "labels": {
+    "criticality": "tier-0",
+    "env": "prod"
+   },
+   "resources": {
+    "Deployment/payments-api": {
+     "kind": "Deployment",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "payments-api",
+     "namespace": "payments",
+     "spec": {
+      "env": {},
+      "image": "payments-api:2.4",
+      "ready": 1,
+      "replicas": 1,
+      "restarts": 0
+     }
+    },
+    "NetworkPolicy/default-deny-payments": {
+     "kind": "NetworkPolicy",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "default-deny-payments",
+     "namespace": "payments",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    },
+    "Service/payments-api": {
+     "kind": "Service",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "payments-api",
+     "namespace": "payments",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    }
+   }
+  },
+  "shop": {
+   "labels": {
+    "env": "prod"
+   },
+   "resources": {
+    "ConfigMap/web-config": {
+     "kind": "ConfigMap",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "web-config",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    },
+    "Deployment/api": {
+     "kind": "Deployment",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "api",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "image": "bounded-demo-api:1.0",
+      "ready": 2,
+      "replicas": 2,
+      "restarts": 0
+     }
+    },
+    "Deployment/web": {
+     "kind": "Deployment",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "web",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "image": "nginx:1.27",
+      "ready": 2,
+      "replicas": 2,
+      "restarts": 0
+     }
+    },
+    "NetworkPolicy/allow-api-to-postgres": {
+     "kind": "NetworkPolicy",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "allow-api-to-postgres",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    },
+    "NetworkPolicy/allow-web-to-api": {
+     "kind": "NetworkPolicy",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "allow-web-to-api",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    },
+    "NetworkPolicy/default-deny": {
+     "kind": "NetworkPolicy",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "default-deny",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    },
+    "PersistentVolumeClaim/pg-data": {
+     "kind": "PersistentVolumeClaim",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "pg-data",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    },
+    "Secret/pg-credentials": {
+     "kind": "Secret",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "pg-credentials",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    },
+    "Service/api": {
+     "kind": "Service",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "api",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    },
+    "Service/postgres": {
+     "kind": "Service",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "postgres",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    },
+    "Service/web": {
+     "kind": "Service",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "web",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "ready": 1,
+      "restarts": 0
+     }
+    },
+    "StatefulSet/postgres": {
+     "kind": "StatefulSet",
+     "labels": {
+      "bounded-managed": "true"
+     },
+     "name": "postgres",
+     "namespace": "shop",
+     "spec": {
+      "env": {},
+      "image": "postgres:16",
+      "ready": 1,
+      "replicas": 1,
+      "restarts": 0
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "apiVersion": "v1",
+ "kind": "NetworkPolicy",
+ "metadata": {
+  "name": "default-deny-payments",
+  "namespace": "payments",
+  "labels": {
+   "bounded-managed": "true"
+  }
+ },
+ "spec": {}
+}

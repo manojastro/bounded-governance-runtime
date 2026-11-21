@@ -1,0 +1,12 @@
+{
+ "apiVersion": "v1",
+ "kind": "PersistentVolumeClaim",
+ "metadata": {
+  "name": "pg-data",
+  "namespace": "shop",
+  "labels": {
+   "bounded-managed": "true"
+  }
+ },
+ "spec": {}
+}

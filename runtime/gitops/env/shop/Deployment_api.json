@@ -1,0 +1,31 @@
+{
+ "apiVersion": "apps/v1",
+ "kind": "Deployment",
+ "metadata": {
+  "name": "api",
+  "namespace": "shop",
+  "labels": {
+   "app": "api",
+   "bounded-managed": "true"
+  }
+ },
+ "spec": {
+  "replicas": 2,
+  "template": {
+   "metadata": {
+    "labels": {
+     "app": "api"
+    }
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "api",
+      "image": "bounded-demo-api:1.0",
+      "env": []
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "last_synced": "22846a1428e6b63aec4dc3abbccfe2679ebf0c98",
+ "history": [
+  {
+   "sha": "22846a1428e6b63aec4dc3abbccfe2679ebf0c98",
+   "ts": 1787506496.3836682,
+   "result": {
+    "created": [],
+    "updated": [
+     "Deployment/payments/payments-api",
+     "NetworkPolicy/payments/default-deny-payments",
+     "Service/payments/payments-api",
+     "ConfigMap/shop/web-config",
+     "Deployment/shop/api",
+     "Deployment/shop/web",
+     "NetworkPolicy/shop/allow-api-to-postgres",
+     "NetworkPolicy/shop/allow-web-to-api",
+     "NetworkPolicy/shop/default-deny",
+     "PersistentVolumeClaim/shop/pg-data",
+     "Secret/shop/pg-credentials",
+     "Service/shop/api",
+     "Service/shop/postgres",
+     "Service/shop/web",
+     "StatefulSet/shop/postgres"
+    ],
+    "deleted": []
+   }
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "apiVersion": "v1",
+ "kind": "NetworkPolicy",
+ "metadata": {
+  "name": "allow-api-to-postgres",
+  "namespace": "shop",
+  "labels": {
+   "bounded-managed": "true"
+  }
+ },
+ "spec": {}
+}

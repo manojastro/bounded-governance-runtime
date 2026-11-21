@@ -1,0 +1,31 @@
+{
+ "apiVersion": "apps/v1",
+ "kind": "Deployment",
+ "metadata": {
+  "name": "web",
+  "namespace": "shop",
+  "labels": {
+   "app": "web",
+   "bounded-managed": "true"
+  }
+ },
+ "spec": {
+  "replicas": 2,
+  "template": {
+   "metadata": {
+    "labels": {
+     "app": "web"
+    }
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "web",
+      "image": "nginx:1.27",
+      "env": []
+     }
+    ]
+   }
+  }
+ }
+}
